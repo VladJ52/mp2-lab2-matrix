@@ -37,7 +37,7 @@ TEST(TMatrix, copied_matrix_has_its_own_memory)
 	TMatrix <int> m1(10);
 	m1[1][1] = 1;
 	TMatrix <int> m2(10);
-	EXPECT_EQ(&m1[0], &m2[0]);
+	EXPECT_NE(&(m1[0]), &(m2[0]));
 }
 
 TEST(TMatrix, can_get_size)
@@ -88,7 +88,7 @@ TEST(TMatrix, assign_operator_change_matrix_size)
 	TMatrix<int> m2(10);
 	m2[1][1] = 1;
 	m1 = m2;
-	EXPECT_EQ(m1.GetSize(),5);
+	EXPECT_EQ(m1.GetSize(),10);
 }
 
 TEST(TMatrix, can_assign_matrices_of_different_size)
